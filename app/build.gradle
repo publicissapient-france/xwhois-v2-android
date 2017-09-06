@@ -1,5 +1,22 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://maven.fabric.io/public" }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+
+repositories {
+    jcenter()
+    maven { url 'https://maven.fabric.io/public' }
+}
 
 def getVersionCode = { ->
     try {
@@ -11,7 +28,7 @@ def getVersionCode = { ->
         return Integer.parseInt(stdout.toString().trim())
     }
     catch (ignored) {
-        return -1;
+        return -1
     }
 }
 
@@ -25,30 +42,41 @@ def getVersionName = { ->
         return stdout.toString().trim()
     }
     catch (ignored) {
-        return null;
+        return null
     }
 }
 
+dependencies {
+
+    def support_version = '25.3.1'
+
+    compile("com.android.support:appcompat-v7:$support_version",
+            'com.android.support.constraint:constraint-layout:1.0.2')
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "fr.xebia.xwhois"
+        applicationId "fr.xebia.whois"
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode getVersionCode()
         versionName getVersionName()
     }
     buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-dependencies {
-    compile('com.android.support:appcompat-v7:25.3.1',
-            'com.android.support.constraint:constraint-layout:1.0.2')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
