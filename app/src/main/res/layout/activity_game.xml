@@ -1,6 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"/>
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gameMidGuide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/gameHiScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="HI : 100 000 000"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/gameImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/gameName1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameHiScore"
+        tools:src="@drawable/nsidhoum"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_spacing"
+        android:background="@color/warn"
+        android:padding="@dimen/small_spacing"
+        android:textAllCaps="true"
+        android:textColor="@color/accent"
+        android:textSize="@dimen/big_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gameImg"
+        tools:text="critical !"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_spacing"
+        android:background="@color/warn"
+        android:padding="@dimen/small_spacing"
+        android:textColor="@color/accent"
+        android:textSize="@dimen/big_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gameImg"
+        tools:text="9 Hits"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/gameName1"
+        style="@style/Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gameName2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Estelle Boyer"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/gameName2"
+        style="@style/Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gameName4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/gameMidGuide"
+        tools:text="Sara Rodrigues"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/gameName3"
+        style="@style/Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gameName4"
+        app:layout_constraintLeft_toLeftOf="@+id/gameMidGuide"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Laetitia Janné"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/gameName4"
+        style="@style/Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/gameScore"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Anne Beauchart"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/gameScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/gameProgressTime"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Score : 12 000"/>
+
+    <ProgressBar
+        android:id="@+id/gameProgressTime"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="@dimen/default_spacing"
+        android:layout_marginLeft="@dimen/default_spacing"
+        android:layout_marginRight="@dimen/default_spacing"
+        android:layout_marginStart="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:progress="10"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/gameTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_spacing"
+        android:layout_marginStart="@dimen/default_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="45s"/>
+
+</android.support.constraint.ConstraintLayout>
