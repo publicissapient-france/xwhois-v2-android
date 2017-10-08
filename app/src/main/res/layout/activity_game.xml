@@ -44,9 +44,11 @@
         android:textAllCaps="true"
         android:textColor="@color/accent"
         android:textSize="@dimen/big_text"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/gameImg"
-        tools:text="critical !"/>
+        tools:text="critical !"
+        tools:visibility="visible"/>
 
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="wrap_content"
@@ -56,9 +58,11 @@
         android:padding="@dimen/small_spacing"
         android:textColor="@color/accent"
         android:textSize="@dimen/big_text"
+        android:visibility="gone"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/gameImg"
-        tools:text="9 Hits"/>
+        tools:text="9 Hits"
+        tools:visibility="visible"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/gameName1"

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Whois</string>
+    <string name="high_score">High Score : %1$s</string>
+    <string name="dashboard_play">jouer</string>
 </resources>
